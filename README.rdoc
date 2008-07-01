@@ -1,0 +1,2 @@
+== One place to hold them all
+I searched on http://github.com for Mephisto Blog, and found many repositories.  I searched for supporting code, and found none.  So now I post this bundle of goodness.  It should always contain code to enhance the Mephisto Blog software started by technoweenie and company.  Got ideas or questions?  Send me a github message or post to this repository's wiki.
