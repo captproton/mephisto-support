@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+{% head %}
+  <title>{{ site.title }}{% if article %} | {{ article.title }}{% else%} | {{ site.subtitle }}{% endif %}</title>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+  {% comment %}
+  <!-- Use this RSS link if you are using FeedBurner (recommended) -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="changeme" />
+  {% endcomment %}
+  <!-- Include Mephisto's default RSS feed -->
+  {{ head.feed }}
+
+  {{ 'prototype' | javascript }}
+  {{ 'scribbish' | javascript }}
+
+  {{ 'application' | stylesheet }}
+
+  {% comment %}
+  <!-- To add an OpenID, edit the openid template and delete the comments. -->
+  {% include 'openid' %}
+  {% endcomment %}
+
+{% endhead %}
+<body>
+<div id="container">
+  <div id="header">
+    <h1><span><a href="/">{{ site.title }}</a></span></h1>
+    <h2>{{ site.subtitle }}</h2>
+  </div>
+
+  <div id="page">
+    <div id="content">
+      {{ content_for_layout }}
+      <script type="text/javascript">
+        //<![CDATA[
+        show_dates_as_local_time()
+        //]]>
+      </script>
+    </div>
+
+    <div id="sidebar">
+      <!-- Delete the comment blocks if you'd like to display the search form -->
+      <div class="sidebar-node">
+        <div id="search" class="search">
+          <form action="/search" id="sform" method="get" name="sform">
+            <p><input type="text" id="q" name="q" value="" /></p>
+          </form>
+        </div>
+      </div>
+
+      {% comment %}
+      <!-- Delete the comment blocks if you'd like to display links for the monthly archive -->
+      {% if section.months.size > 0 %}
+      <div class="sidebar-node">
+        <h3>Archives</h3>
+        <ul>
+        {% for month in section.months %}
+          <li>{{ section | link_to_month: month }} ({{ section | monthly_articles: month | size }})</li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% endcomment %}
+
+      {% comment %}
+      <!-- Delete the comment blocks if you'd like to list out your sections -->
+      {% if site.sections.size > 0 %}
+      <div class="sidebar-node">
+        <h3>Sections</h3>
+        <ul>
+        {% for section in site.sections %}
+          <li>{{ section | link_to_section }} ({{ section.articles | size }})</li>
+        {% endfor %}
+        </ul>
+      </div>
+      {% endif %}
+      {% endcomment %}
+
+      <!-- Delete the comment blocks if you'd like to list out your tags -->
+      {% if site.tags.size > 0 %}
+      <div class="sidebar-node">
+        <h3>Tags</h3>
+        <p style="overflow:hidden">
+        {% for tag in site.tags %}
+           <span>{{ tag | link_to_tag }}</span>
+        {% endfor %}
+        </p>
+      </div>
+      {% endif %}
+      <div class="sidebar-node">
+        <p><a href="http://mephistoblog.com/" class="powered">{{ 'mephisto-badge-tiny.png' | img_tag }}</a></p>
+      </div>
+
+    </div>
+    <br style="clear:both;" />
+
+  </div>
+
+  <div id="footer">
+    <hr />
+    <p><a href="/">{{ site.title }}</a></p>
+    <ul>
+      <li>powered by <a href="http://mephistoblog.com" target="_blank">Mephisto</a> /
+          styled with <a href="#">wibbish</a></li>
+    </ul>
+  </div>
+
+</div>
+
+</body>
+</html>

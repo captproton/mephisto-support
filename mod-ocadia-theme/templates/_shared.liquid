@@ -1,0 +1,40 @@
+{% for article in articles %}
+<div class="post post-{{ article.id }}">
+
+		<h1 class="storytitle">{{ article | link_to_article }}</h1>
+
+		<p class="meta">
+			Posted
+			{% if article.sections.size > 0 %}
+				in {{ article | linked_section_list }}
+			{% endif %}
+			at {{ article.published_at | format_date: 'time_only', true }}
+			by {{ article.author.login }}
+		</p>
+    <div class='post_content'>
+      {% if article.excerpt %}
+        {{ article.excerpt }}
+        {% unless mode == 'single' %}
+        <a href="{{ article.url }}">Read the rest of this entry</a>
+        {% endunless %}
+      {% else %}
+        {% unless mode == 'single' %}{{ article.body }}{% endunless %}
+      {% endif %}
+      {% if mode == 'single' %}
+        {{ article.body }}
+      {% endif %}
+    </div>
+		<p class="feedback">
+			<a href="{{ article.url }}" class="permalink">Permalink</a>
+			{% unless mode == 'single' %}
+				{% if article.accept_comments %}<a href="{{ article.url }}#comments" class="commentslink">{{ article.comments_count | pluralize: 'comments' }}  &#187;</a>{% endif %}
+			{% endunless %}
+		</p>
+</div>
+<hr />
+{% endfor %}
+{% if mode == 'single' %}
+  <div class="commentsblock">
+    {% include 'comments' %}
+  </div>
+{% endif %}

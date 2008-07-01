@@ -1,0 +1,32 @@
+{% if article.comments_count > 0 %}
+	<h2 id="comments">
+		Comments 
+		<a href="#postcomment" title="Jump to the comments form">&raquo;</a>
+	</h2>
+	
+	<ol id="commentlist">
+	{% for comment in article.comments %}
+		<li class="comment{% cycle 'alt', '' %}" id="comment-{{ comment.id }}">
+			<p class="commentauthor">{{ comment.author_link }} said,</p>
+			<p class="commentmeta">{{ comment.created_at | format_date: 'mdy', true }} at <a href="#comment-{{ comment.id }}" title="Permanent link to this comment">{{ comment.created_at | format_date: 'time_only' }}</a></p>
+			<p>{{ comment.body }}</p>
+		</li>
+  {% endfor %}
+	</ol>
+{% endif %}
+
+
+{% if article.accept_comments %}
+
+<h2 id="postcomment">Leave a Comment</h2>
+{% commentform %}
+  <p>{{ form.name }} <label for="author">Name (required)</label></p>
+  <p>{{ form.email }} <label for="email">E-mail (will not be published)</label></p>
+  <p>{{ form.url }} <label for="url"><abbr title="Uniform Resource Identifier">URI</abbr></label></p>
+  <p><textarea name="comment[body]" id="comment" cols="100%" rows="10">{{ submitted.body }}</textarea></p>
+  <p><input name="submit" type="submit" id="submit" value="Submit Comment" /></p>
+{% endcommentform %}
+
+{% else %}
+<p>Sorry, comments are closed for this article.</p>
+{% endif %}

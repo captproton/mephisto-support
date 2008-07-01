@@ -1,0 +1,19 @@
+<div id="primary" class="single-post">
+	<div class="inside">
+		<div class="primary">
+			<h1>Search results for <em>"{{search_string}}"</em></h1>
+			<ul class="dates">
+				{% for article in articles %}
+				<li>
+					<span class="date">{{article.published_at | date: '%d.%m.%y' }}</span>  
+					{{ article | link_to_search_result }} posted in 
+					{% for section in article.sections %}
+						{{section | link_to_section }}
+					{% endfor %}
+				</li>
+				{% endfor %}
+			</ul>
+		</div>
+		<div class="clear"></div>
+	</div>
+</div>

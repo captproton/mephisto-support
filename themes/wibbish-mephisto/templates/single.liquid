@@ -1,0 +1,5 @@
+{% unless mode == 'page' %}
+  {% include 'article' with articles %}
+{% else %}
+  {% include 'page' %}
+{% endunless %}

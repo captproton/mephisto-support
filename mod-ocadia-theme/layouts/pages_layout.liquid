@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<title>{{ site.title }}: {% if article %} {{ article.title }} {% else %} {{ site.subtitle }} {% endif %}</title>
+	<meta name="generator" content="Mephisto" />
+	{{ 'main' | stylesheet }}
+	{{ site.home_section | articles_feed }}
+	<style type="text/css" media="screen">
+	#sidebar ul {
+		background: url(/images/sidebar2b.gif) repeat-y;
+	}
+	#sidebar ul li {
+		background: url(/images/sidebar-bottomb.gif) no-repeat bottom left;
+	}
+	#sidebar h2 {
+		background: url(/images/sidebar-topb.gif) no-repeat;
+	}
+	#sidebar #search p, .widget_search div div {			
+		background: url(/images/sidebar-topb.gif) no-repeat;
+	}
+	#calendar div {
+		background: url(/images/sidebar-topb.gif) no-repeat;	
+	}
+	</style>
+</head>
+
+<body>
+	<div id="wrapper">
+	    <div id="header">
+			<h1><a href="/">{{ site.title }}</a></h1>
+			<p>{{ site.subtitle }}</p>
+	    </div>
+
+	    <div id="content">
+			{{ content_for_layout }}
+	    </div>
+
+	    <div id="sidebar">
+			<ul>
+			
+			<li id="search" class="widget widget_search">
+				<form method="get" id="searchform" action="/search">
+					<div><div>
+					<input type="text" id="s" value="" name="q" size="15" /><br />
+					<input type="submit" value="Search" />
+					</div></div>
+				</form>
+			</li>
+			
+			<li id="categories">
+				<h2>Categories</h2>
+				<ul>
+				{% for category in site.blog_sections %}<li>{{ category | link_to_section  }}</li>{% endfor %}
+				</ul>
+			</li>
+			
+			{% if site.page_sections %}
+			<li id="pages">
+				<h2>Pages</h2>
+				<ul>
+				{% for page in site.page_sections %}<li>{{ page | link_to_section }}</li>{% endfor %}
+				</ul>
+			</li>
+			{% endif %}
+			
+			</ul>
+		</div>
+
+		<div id="footer">
+			<p>
+			Original design by <a href="http://beccary.com" title="Theme designed by Becca Wei">Becca Wei</a>
+			&#183;
+			<a href="http://validator.w3.org/check/referer" title="This page validates as XHTML 1.0 Transitional"><abbr title="eXtensible HyperText Markup Language">XHTML</abbr></a>
+			&#183;
+			<a href="http://jigsaw.w3.org/css-validator/check/referer" title="This page validates as CSS"><abbr title="Cascading Style Sheets">CSS</abbr></a><br/>
+			Ported to <a href="http://mephistoblog.com/">Mephisto</a> by <a href="http://matthewbass.com/blog">Matthew Bass</a>
+			</p>
+		</div>
+	</div>
+</body>
+</html>

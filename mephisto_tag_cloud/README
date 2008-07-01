@@ -1,0 +1,23 @@
+TagCloud
+========
+
+So basically, you just do this in your layout:
+
+  {% if site.tags.size > 0 %}
+  <div class="sidebar-node">
+    <h3>Tags</h3>
+    <p style="overflow:hidden">
+    {% for tag in site.tags %}
+      {{ tag | size_tag }}
+    {% endfor %}
+    </p>
+  </div>
+  {% endif %}
+
+Or some other rendition.  The important part is this:
+
+    {% for tag in site.tags %}
+      {{ tag | size_tag }}
+    {% endfor %}
+
+As long as you've got that under control, everything is cool.

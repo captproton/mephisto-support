@@ -1,0 +1,22 @@
+= Ocadia for Mephisto
+
+Version:: 1.01
+Author::  Matthew Bass
+Website:: matthewbass.com/blog
+Email::   pelargir at gmail dot com
+
+*Ocadia for Mephisto* is a port of Becca Wei's excellent Ocadia theme for WordPress.
+
+
+== Installation
+
+Copy the <tt>ocadia</tt> folder to your Mephisto installation's <tt>themes/site-1</tt> directory.
+You'll also need to add the following line to <tt>environment.rb</tt>:
+
+  ActiveSupport::CoreExtensions::Time::Conversions::DATE_FORMATS[:mdy_num] = '%m.%d.%y'
+
+
+== License
+
+The original Ocadia theme was released under the GPL license. Ocadia for Mephisto is therefore also
+released under the GPL license. See http://www.gnu.org/licenses/gpl.html

@@ -1,0 +1,10 @@
+<h2>The search for &#147;{{ search_string}}&#148; returned {{ search_count | pluralize: 'result' }}:</h2>
+
+{% if articles.size > 0 %}
+<dl>
+{% for article in articles %}
+  <dt><b>{{ article | link_to_article }}</b></dt>
+  <dd><em>published by {{ article.author.login }} on {{ article.published_at | date: "%A, %B %d, %Y" }}<br/><br/></em></dd>
+{% endfor %}
+</dl>
+{% endif %}

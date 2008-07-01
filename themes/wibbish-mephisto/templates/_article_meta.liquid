@@ -1,0 +1,20 @@
+<ul class="meta">
+  {% if article.sections.size > 0 %}
+  <li>
+    Sections: {% for section in article.sections %} {{ section | link_to_section }}{% endfor %}
+  </li>
+  {% endif %}
+  {% if article.tags.size > 0 %}
+  <li>
+    Tags: {% for tag in article.tags %}{{ tag | link_to_tag }}&nbsp;{% endfor %}
+  </li>
+  {% endif %}
+  <li>
+    Meta: 
+    {% if article.accept_comments || article.comments_count > 0 %}
+    {{ article | link_to_comments }}, 
+    {% endif %}
+    {{ article | link_to_article: "permalink" }}
+    {% comment %} <!-- There's currently no per-article syndication feed for Mephisto --> , syndicate {% endcomment %}
+  </li>
+</ul>

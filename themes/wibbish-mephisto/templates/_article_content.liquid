@@ -1,0 +1,8 @@
+<div class="entry-content">
+  {{ article.content }}
+  {% if article.excerpt %}
+  <div class="extended">
+    <p>{{ article | link_to_article: "Continue reading..." }}</p>
+  </div>
+  {% endif %}
+</div>

@@ -1,0 +1,127 @@
+/*--------------------------------------------------------------
+ Syntax Highlighting - contributed by James Wilford
+ Closely matches TextMate's "All Hallow's Eve" theme
+ --------------------------------------------------------------*/
+
+.CodeRay      {
+  border:1px solid #333;
+  background-color:#222;
+  margin:0 0 10px 0;
+  position:relative;
+  font-size:14px;
+  overflow:auto;
+  width:657px;
+  padding:0;
+  z-index:1;
+}
+.CodeRayMoused {
+  border:solid 1px #ccc;
+  width:900px;
+  z-index:3;
+}
+
+div.CodeRay   { }
+span.CodeRay  { }
+table.CodeRay { border-collapse:collapse; }
+
+
+table.CodeRay td { vertical-align:top; }
+
+.CodeRay .line_numbers, .CodeRay .no {
+  background-color:#e2e2e2;
+  text-align:right;
+  padding:3px 5px;
+  color:#888;
+}
+.CodeRay .line_numbers tt { font-weight:bold; }
+.CodeRay .no {
+  background-color:#e2e2e2;
+  text-align:right;
+  padding:3px 5px;
+  color:#888;
+}
+.CodeRay .code { width:100%; }
+
+ol.CodeRay { font-size:12pt; }
+ol.CodeRay li { white-space:pre; }
+
+.af { color:#00C; }
+.an { color:#007; }
+.av { color:#700; }
+.aw { color:#C00; }
+.bi { color:#509; font-weight:bold; }
+.c  { color:#93c; }
+
+.ch     { color:#7AD; }
+.ch .k  { color:#7AD; }
+.ch .dl { color:#7A9; }
+
+.cl { color:#B06; font-weight:bold; }
+.co { color:#FB0; font-weight:bold; }
+.cr { color:#0A0; }
+.cv { color:#369; }
+.df { color:#099; font-weight:bold; }
+.di { color:#088; font-weight:bold; }
+.dl { color:white; }
+.do { color:#970; }
+.ds { color:#D42; font-weight:bold; }
+.e  { color:#666; font-weight:bold; }
+.en { color:#800; font-weight:bold; }
+.er { color:#F00; background-color:#FAA; }
+.ex { color:#F00; font-weight:bold; }
+.fl { color:#60E; font-weight:bold; }
+.fu { color:#06B; font-weight:bold; }
+.gv { color:#d70; font-weight:bold; }
+.hx { color:#058; font-weight:bold; }
+.i  { color:#99D; font-weight:bold; }
+.ic { color:#B44; font-weight:bold; }
+
+.il             { color:#fff; background:#000; }
+.il .co         { color:#fff; }
+.il .dl         { font-weight:bold; color:#fff; }
+.il .sy         { color:#3387cc; }
+.il .s          { background-color:transparent; }
+.il .s  .s      { background-color:transparent; }
+.il .s  .s  .s  { background-color:transparent; }
+.il .s  .k      { color:#66cc33; }
+.il .s  .dl     { color:#66cc33; }
+
+.in { color:#B2B; font-weight:bold; }
+.iv { color:#33B; }
+.la { color:#970; font-weight:bold; }
+.lv { color:#963; }
+.oc { color:#40E; font-weight:bold; }
+.on { color:#000; font-weight:bold; }
+.op { }
+.pc { color:#37a; font-weight:bold; }
+.pd { color:#369; font-weight:bold; }
+.pp { color:#579; }
+.pt { color:#339; font-weight:bold; }
+.r  { color:#c73; font-weight:bold; }
+
+.rx       { background-color:#030; }
+.rx .k    { color:#FFF; }
+.rx .dl   { color:#AAF; }
+.rx .mod  { color:#FFF; }
+.rx .fu   { color:#FFF; font-weight:bold; }
+
+.s          { }
+.s  .s      {}
+.s  .s  .s  {}
+.s  .k      { color:#D20; }
+.s  .dl     { color:#F00; }
+
+.sh     { background-color:#f0fff0; }
+.sh .k  { color:#2B2; }
+.sh .dl { color:#161; }
+
+.sy     { color:#A60; }
+.sy .k  { color:#A60; }
+.sy .dl { color:#630; }
+
+.ta { color:#070; }
+.tf { color:#070; font-weight:bold; }
+.ts { color:#D70; font-weight:bold; }
+.ty { color:#339; font-weight:bold; }
+.v  { color:#036; }
+.xt { color:#444; }

@@ -1,0 +1,7 @@
+Liquid Gravatar
+===============
+Just returns an image tag for a user's gravatar.
+
+{{article.author | gravatar}}
+
+<img src='http://gravatar.com...' />

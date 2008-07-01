@@ -1,0 +1,14 @@
+{% if mode == 'single' %}
+{% include 'article_rdf' %}
+{% endif %}
+<div class="hentry" id="article-{{ article.id }}">
+  <h2 class="entry-title">
+    {{ article | link_to_article }}
+  </h2>
+  {% include 'article_author' %}
+  {% include 'article_content' %}
+  {% include 'article_meta' %}
+</div>
+{% if mode == 'single' %}
+{% include 'article_comments' %}
+{% endif %}
