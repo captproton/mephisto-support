@@ -1,0 +1,333 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<meta name="description" content="liverail.net is the technology blog of Stuart Eccles, UK based internet consultant. The liverail blog is all about cutting edge web technologies with posts and tutorials on such topics such as Ruby On Rails and Flex" />
+<meta name="keywords" content="ruby, rails, flex, ruby on rails, facebook, tutorials, internet, web2.0, enterprise2.0, rss, semantic web, metadata, scaling, hosting, linux" />
+<meta name="author" content="Stuart Eccles" />
+<link href="/stylesheets/default.css" rel="stylesheet" type="text/css" />
+<script src="/javascripts/code_highlighter.js" type="text/javascript"></script>
+<script src="/javascripts/html.js" type="text/javascript"></script>
+<script src="/javascripts/ruby.js" type="text/javascript"></script>
+<script src="/javascripts/css.js" type="text/javascript"></script>
+<script src="/javascripts/javascript.js" type="text/javascript"></script>
+<link href="/stylesheets/syntax.css" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/thickbox.css" rel="stylesheet" type="text/css" />
+<script src="/javascripts/jquery.js" type="text/javascript"></script>
+<script src="/javascripts/thickbox.js" type="text/javascript"></script>
+<link href="/feed/atom.xml" rel="alternate" type="application/atom+xml" />
+<script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+</script>
+<script type="text/javascript">
+_uacct = "UA-153994-1";
+urchinTracker();
+</script>
+<title>Liverail WebDAV plugin for Mephisto</title>
+</head>
+
+<body>
+	<!-- http://www.liverail.net/articles/2007/5/5/webdav-plugin-for-mephisto -->
+<div id="wrap">
+
+<div id="header">
+<p id="toplinks"><a href="/" title="Blog">blog</a> | <a href="/railsdav" title="RailsDAV">railsdav</a></p>
+
+<h1><a href="/">liverail<span class="fade">.net</span></a></h1>
+<p id="slogan">making a better digital london</p>
+
+
+</div>
+
+
+<div id="content">
+
+ 
+
+
+  
+
+
+
+
+
+
+	<h2><a href="/articles/2007/5/5/webdav-plugin-for-mephisto" title="WebDAV plugin for Mephisto">WebDAV plugin for Mephisto</a></h2>
+<p> 	
+	May 5th, 2007  
+		
+	  
+		  
+		
+		
+		
+		  <p>I&#8217;ve put together a WebDAV plugin for <a href="http://mephistoblog.com/">mephisto</a> the rails blogging engine which runs this site which adds 2 webdav controllers using RailsDAV.</p>
+
+
+	<p>1. Theme <span class="caps">DAV</span> Controller &#8211; Allows a standard file mount of the mephisto themes directory protected by a <span class="caps">BASIC</span> authentication requiring you to log in as an admin user. This means you can edit the life themes from your favourite editor. All general file functions such as move, copy, delete and make folder should all be good.</p>
+
+
+	<p>2. Asset <span class="caps">DAV</span> Controller &#8211; Allows uploading and downloading of Mephisto assets through the file system mounting. This is a great example of using RailsDAV with <a href="http://svn.techno-weenie.net/projects/plugins/attachment_fu/">attachment_fu</a> which i&#8217;ll go into greater detail about in a later post. It&#8217;s worth noting that if you upload images, the resized versions thumb and tiny are also then available for download. You can&#8217;t create new directories but you can delete assets.</p>
+
+
+	<p>For now installing the <strong>mephisto_dav</strong> plugin has the following pre-reqs:</p>
+
+
+	<ul>
+	<li>Using Edge Mephisto</li>
+		<li>Using Edge Rails</li>
+		<li>Latest version of RailsDAV plugin installed.</li>
+	</ul>
+
+
+	<p>So installation is a matter of running the following in your mephisto rails directory:</p>
+
+
+<pre>
+<code class="console">
+ruby script/plugin install http://svn.liverail.net/svn/plugins/railsdav
+ruby script/plugin install http://svn.liverail.net/svn/plugins/mephisto_dav
+</code>
+</pre>
+
+	<p>Then after starting your server you can connect your favourite WebDAV client (such as Finder on Mac <span class="caps">OS X</span>) to http://server/theme_dav or http://server/asset_dav</p>
+
+
+	<p><span class="caps">UPDATE</span>: I realise that the comments havn&#8217;t been working on liverail and the railsdav lighthouse project was shut. Both should be working now.</p>
+		
+	
+		
+
+		
+		
+		
+	
+		
+		</p>
+
+
+
+
+  <div class="commentsblock">
+    
+	<h3 id="comments">4 Responses to &#8220;WebDAV plugin for Mephisto&#8221;</h3> 
+	<ol class="commentlist">
+	
+		<li class="alt" id="comment-1989">
+			<cite><a href="http://nnovation.ca/blog" rel="nofollow">Jodi</a></cite> Says:
+			<br />
+			<small class="commentmetadata"><a href="#comment-1989" title="">July 12th, 2007 at 01:59 AM</a></small>
+			<p>Howdy Stuart -</p>
+
+
+	<p>I&#8217;ve been meaning to try railsdav out for a while &#8211; and well it&#8217;s now time!</p>
+
+
+	<p>Any thoughts/suggestions for implementing ical over railsdav?</p>
+
+
+	<p>thanx.
+Jodi</p>
+		</li>
+  
+		<li class="" id="comment-3136">
+			<cite><span>greg</span></cite> Says:
+			<br />
+			<small class="commentmetadata"><a href="#comment-3136" title="">December 1st, 2007 at 01:45 AM</a></small>
+			<p>Any recommendations on a webdav <strong>client</strong> library for ruby/rails?  I can&#8217;t find anything, and I need my rails app to talk to an existing webdav repository.</p>
+
+
+	<p>Thanks in advance.</p>
+		</li>
+  
+		<li class="alt" id="comment-3807">
+			<cite><a href="http://www.updrift.com" rel="nofollow">Wade Winningham</a></cite> Says:
+			<br />
+			<small class="commentmetadata"><a href="#comment-3807" title="">January 7th, 2008 at 06:58 PM</a></small>
+			<p>With Rails 2.0, ActionController now has an <span class="caps">ACCEPTED</span>_HTTP_METHODS constant which does not include &#8216;propfind&#8217; which RailsDav uses. A quick fix for this is to add this to your environment.rb (or appropriate initializer).</p>
+
+
+	<p>ActionController::ACCEPTED_HTTP_METHODS = Set.new(%w( get head put post delete options propfind ))</p>
+
+
+	<p>This may not be the best way to fix it, but it worked for me. Should be straightforward to add to the plugin.</p>
+		</li>
+  
+		<li class="" id="comment-3808">
+			<cite><a href="http://www.updrift.com" rel="nofollow">Wade Winningham</a></cite> Says:
+			<br />
+			<small class="commentmetadata"><a href="#comment-3808" title="">January 7th, 2008 at 08:05 PM</a></small>
+			<p>Actually&#8230;</p>
+
+
+	<p>ActionController::ACCEPTED_HTTP_METHODS.add(&#8216;propfind&#8217;)</p>
+
+
+	<p>Is better to use.</p>
+		</li>
+  
+	</ol>
+
+
+
+
+
+<h3 id="respond">Leave a Reply</h3>
+<form id="comment-form" method="post" action="/articles/2007/5/5/webdav-plugin-for-mephisto/comments#comment-form">
+  <p><input type="text" id="comment_author" name="comment[author]" value="" /><label for="author"><small>Name (required)</small></label></p>
+  <p><input type="text" id="comment_author_email" name="comment[author_email]" value="" /><label for="email"><small>Mail (will not be published)</small></label></p>
+  <p><input type="text" id="comment_author_url" name="comment[author_url]" value="" /><label for="url"><small>Website</small></label></p>
+  <p><textarea name="comment[body]" id="comment" cols="50" rows="10"></textarea></p>
+  <p><input name="submit" type="submit" id="submit" value="Submit Comment" /></p>
+</form>
+
+
+
+  </div>
+
+
+
+
+</div>
+
+
+
+<div id="sidebar">
+<h2>This is liverail.net</h2>
+<p>Liverail.net is the personal and technical blog of Stuart Eccles.</p>
+<p>Stuart is the technical director of <a href="http://www.madebymany.co.uk" title="Made By Many">Made By Many</a>, a London UK based next-gen website and social media consultancy and a conversationalist on Ruby On Rails, Flex, AIR, RIA and agile project techniques.</p>
+<p>You can follow me on <a href="http://twitter.com/stueccles">twitter</a></p>
+
+<h2>Categories:</h2>
+<ul>
+        
+          <li>
+	<a class="selected" href="/" title="Home">Home</a> (15)
+		</li>
+        
+          <li>
+	<a href="/rubyonrails" title="RubyOnRails">RubyOnRails</a> (15)
+		</li>
+        
+          <li>
+	<a href="/railsdav" title="RailsDAV">RailsDAV</a> (7)
+		</li>
+        
+          <li>
+	<a href="/liverail" title="Liverail">Liverail</a> (8)
+		</li>
+        
+          <li>
+	<a href="/facebook" title="Facebook">Facebook</a> (3)
+		</li>
+        
+          <li>
+	<a href="/apple" title="Apple">Apple</a> (6)
+		</li>
+        
+          <li>
+	<a href="/london" title="London">London</a> (5)
+		</li>
+        
+          <li>
+	<a href="/web2-0" title="Web2.0">Web2.0</a> (5)
+		</li>
+        
+          <li>
+	<a href="/java" title="Java">Java</a> (0)
+		</li>
+        
+          <li>
+	<a href="/enterprise2-0" title="Enterprise2.0">Enterprise2.0</a> (2)
+		</li>
+        
+          <li>
+	<a href="/flex" title="Flex">Flex</a> (11)
+		</li>
+        
+          <li>
+	<a href="/technical-architecture" title="Technical Architecture">Technical Architecture</a> (0)
+		</li>
+        
+          <li>
+	<a href="/personal" title="Personal">Personal</a> (2)
+		</li>
+        
+          <li>
+	<a href="/rants" title="Rants">Rants</a> (2)
+		</li>
+        
+</ul>
+
+<h2>Archive:</h2>
+<ul>
+
+</ul>
+<h2>Friend's Blogs</h2>
+<ul>
+<li><a href="http://www.saltyann.com/" title="Saltyann">Saltyann.com</a></li>
+<li><a href="http://www.knitwareblog.com/" title="Knitware Blog">Knitware Blog</a></li>
+<li><a href="http://blog.flashgen.com" title="FlashGen">FlashGen (Mike Jones)</a></li>
+<li><a href="http://blog.bittube.com/" title="BitTube">BitTube (David Williamson)</a></li>
+<li><a href="http://www.creative-resonance.com/wp-content/themes/interactive-media-applications/index.php?blog=1" title="CreativeResonance">CreativeResonance (Rich Marsh)</a></li>
+<li><a href="http://staff.interesource.com/simon/" title="Simon I'Anson">Simon I'Anson</a></li>
+<li><a href="http://www.wdowenassociates.com/more.htm" title="Wiliam Owen">William Owen</a></li>
+<li><a href="http://www.eribium.org/" title="Alex MacCaw">Alex MacCaw</a></li>
+<li><a href="http://www.danieltodd.com/blog/" title="Daniel Todd">Daniel Todd</a></li>
+<li><a href="http://doctorrogers.blogspot.com/" title="Doc Rogers Blog">Doc Rogers Blog</a></li>
+<li><a href="http://ogglog.com/ogglog/" title="Ã³lafur gauti guÃ°mundsson">Ã³lafur gauti guÃ°mundsson Blog</a></li>
+<li><a href="http://tidalbarrier.blogspot.com/" title="Tidalbarrier Project">Tidalbarrier Project</a></li>
+</ul>
+<h2>Reading List</h2>
+<ul>
+<li><a href="http://www.thedailysocial.com" title="The Daily Social">The Daily Social</a></li>
+<li><a href="http://www.techcrunch.com" title="TechCrunch">TechCrunch</a></li>
+<li><a href="http://money.cnn.com/magazines/business2/" title="TechCrunch">Business 2.0</a></li>
+<li><a href="http://www.presentationzen.com" title="presentation zen">Presentation Zen</a></li>
+<li><a href="http://blog.guykawasaki.com/" title="Guy Kawasaki">Guy Kawasaki</a></li>
+<li><a href="http://www.ajaxian.com" title="Ajaxian">Ajaxian</a></li>
+<li><a href="http://www.planetrubyonrails.com" title="Planet Ruby On Rails">Planet Ruby On Rails</a></li>
+<li><a href="http://www.theserverside.com" title="The Server Side">The Server Side</a></li>
+<li><a href="http://weblogs.macromedia.com/mxna/" title="Macromedia weblogs">Macromedia WebLogs</a></li>
+<li><a href="http://blog.caboo.se/" title="Caboose Blog">Caboose Blog</a></li>
+<li><a href="http://www.therailsway.com/" title="The Rails Way">The Rails Way</a></li>
+<li><a href="http://www.flex.org/" title="Flex.org">Flex.org</a></li>
+</ul>
+<h2>Search:</h2>
+<!-- search form -->
+<form method="get" action="/search">
+<div id="search">
+<input type="text" value="" name="q" id="q" size="16" />
+</div>
+</form>
+<h2>Donate:</h2>
+	<p>If you would like to donate to RailsDAV of any of the projects/plugins on liverail, or if you liked the tutorials so much you want to buy me a beer, please feel free to use this Paypal button</p>
+	<form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+	<input type="hidden" name="cmd" value="_s-xclick">
+	<input type="image" src="https://www.paypal.com/en_US/i/btn/x-click-but04.gif" border="0" name="submit" alt="Make payments with PayPal - it's fast, free and secure!">
+	<img alt="" border="0" src="https://www.paypal.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+	<input type="hidden" name="encrypted" value="-----BEGIN PKCS7-----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-----END PKCS7-----
+	">
+	</form>
+	<script type="text/javascript"><!--
+google_ad_client = "pub-0751492479720503";
+/* 160x600, created 2/15/08 */
+google_ad_slot = "4369474156";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript"
+src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+
+<div id="footer">
+<p>&copy; 2008 <a href="/">Stuart Eccles</a> | Design by <a href="http://andreasviklund.com/">Andreas Viklund</a>
+</p>
+</div>
+
+</div>
+</body>
+</html>
+
+
