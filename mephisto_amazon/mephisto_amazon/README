@@ -1,0 +1,47 @@
+MephistoAmazon
+==============
+
+Is a plugin for Mephisto which relies upon ruby-amazon (http://www.caliban.org/ruby/ruby-amazon.shtml).
+
+There are three Liquid filters and two tags - asin_search and keyword_search. Wishlist searching is only available in the
+filter.
+You can modify how they render by editing the liquid files in the views directory.
+
+Use the filter to render content in an article. Use the tag for the layout.
+
+Wishlist Search
+---------------
+<filter:wishlist_search>0553214322</filter:wishlist_search>
+
+ASIN Search
+-----------
+
+<filter:asin_search>0553214322</filter:asin_search>
+
+or
+
+{% asin_search books 0553214322 %} {% endkeyword_search %}
+
+What is a ASIN? See http://en.wikipedia.org/wiki/Amazon_Standard_Identification_Number
+
+Keyword Search
+--------------
+
+<filter:keyword_search>
+books ruby
+</filter:keyword_search>
+
+or
+
+{% keyword_search books ruby %} {% endkeyword_search %}
+
+Search modes in ruby/amazon - apparel, baby, books, classical, dvd, electronics, garden, kitchen, magazines, music, pc-hardware photo, software, tools, toys, universal, vhs, video, videogames, wireless-phones 
+
+
+Notes
+-----
+The file amazon.rb and everything under the amazon directory is the work of Ian McDonald. ruby-amazon is GPL'd.
+
+License
+-------
+This software is available under the GPL. It was written by Nicholas Faiz for treefallinginthewoods.com in December 2006.

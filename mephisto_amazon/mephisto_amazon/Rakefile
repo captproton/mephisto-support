@@ -1,0 +1,30 @@
+require 'rake'
+require 'rake/testtask'
+require 'rake/rdoctask'
+require 'breakpoint'
+
+task :default => :echo
+
+desc 'Echo current directory'
+Rake::TestTask.new(:echo) do |t|
+  print " ******** Cerberus woofy rake is looking for a Rakefile in [#{Dir.pwd}] \n\n now kill it with ctrl c"
+end
+
+
+
+
+desc 'Test the mephisto_amazon plugin.'
+Rake::TestTask.new(:test) do |t|
+  t.libs << 'lib'
+  t.pattern = 'test/**/*_test.rb'
+  t.verbose = true
+end
+
+# desc 'Generate documentation for the mephisto_amazon plugin.'
+# Rake::RDocTask.new(:rdoc) do |rdoc|
+#   rdoc.rdoc_dir = 'rdoc'
+#   rdoc.title    = 'MephistoAmazon'
+#   rdoc.options << '--line-numbers' << '--inline-source'
+#   rdoc.rdoc_files.include('README')
+#   rdoc.rdoc_files.include('lib/**/*.rb')
+# end

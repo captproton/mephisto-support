@@ -1,0 +1,15 @@
+
+{% for product in products %}
+<p>
+	<div id="{{product.asin}}">
+	{% if product.image_url_small != null %}
+		<a href="http://www.amazon.com/exec/obidos/ASIN/{{product.asin}}/treefallingin-20"><img src="{{product.image_url_small}}" border=0/></a>
+	{% else %}
+	<br/>
+	(No image available)	
+	{% endif %}
+	<br/>
+		<a href="http://www.amazon.com/exec/obidos/ASIN/{{product.asin}}/treefallingin-20">{{product.name}}</a>
+	</div>
+</p>
+{% endfor %}
