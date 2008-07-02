@@ -1,0 +1,38 @@
+require(File.join(File.dirname(__FILE__), '..','..','..', 'config', 'boot'))
+
+require 'rake'
+require 'rake/testtask'
+require 'rake/rdoctask'
+#require 'tasks/rails'
+
+desc 'Default: run unit tests.'
+task :default => :test
+
+task :test do
+  Rake::Task["test:units"].invoke       rescue got_error = true
+  raise "Test failures" if got_error
+end
+
+task :environment do
+  require(File.join(File.dirname(__FILE__), '../../../', 'config', 'environment'))
+end
+
+namespace 'test' do 
+  
+  desc "Test the plugin's units"
+  Rake::TestTask.new(:units) do |t|
+    t.libs << 'lib'
+    t.pattern = 'test/unit/**/*_test.rb'
+    t.verbose = true
+  end
+  
+end
+
+desc 'Generate documentation for the mailinglist plugin.'
+Rake::RDocTask.new(:rdoc) do |rdoc|
+  rdoc.rdoc_dir = 'rdoc'
+  rdoc.title    = 'MailingList'
+  rdoc.options << '--line-numbers' << '--inline-source'
+  rdoc.rdoc_files.include('README')
+  rdoc.rdoc_files.include('lib/**/*.rb')
+end

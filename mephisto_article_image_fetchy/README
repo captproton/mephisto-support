@@ -1,0 +1,14 @@
+Mephisto article image fetchy plugin
+====================================
+
+Automatically finds all external image links in an article and downloads them, 
+converting to a mephisto Asset.  For example, if you write an article like
+
+  This is an article with an <img src="http://external-site.com/image.jpg" /> image in it!
+  
+After saving, the article will look like
+
+  This is an article with an <img src="/assets/2006/12/26/image.jpg" /> image in it!
+
+This means that you no longer have to play the download-and-create-an-asset-upload game
+in order to steal other people's images for your blog.
